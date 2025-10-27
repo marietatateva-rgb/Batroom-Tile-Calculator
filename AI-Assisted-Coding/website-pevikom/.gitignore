@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.env
+.vscode/
+*.log
+Thumbs.db
+# Local Netlify folder
+.netlify
