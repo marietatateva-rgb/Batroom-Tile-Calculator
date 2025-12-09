@@ -1,0 +1,20 @@
+{
+  "name": "invoices-app-monorepo",
+  "version": "1.0.0",
+  "description": "A monorepo for managing invoices with multiple sub-components",
+  "private": true,
+  "workspaces": [
+    "invoice-repo",
+    "invoice-console-app",
+    "invoice-web-app"
+  ],
+  "scripts": {
+    "install-all": "npm install",
+    "build": "npm run build --workspaces",
+    "test": "npm test --workspaces",
+    "start": "npm start --workspace=invoice-console-app"
+  },
+  "dependencies": {
+    "navigo": "^8.11.1"
+  }
+}

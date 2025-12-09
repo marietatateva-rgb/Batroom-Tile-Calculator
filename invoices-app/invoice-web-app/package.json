@@ -1,0 +1,29 @@
+{
+  "name": "invoice-web-app",
+  "version": "1.0.0",
+  "description": "Web application for managing invoices",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "html2pdf.js": "^0.12.1",
+    "invoice-repo": "*",
+    "navigo": "^8.11.1"
+  },
+  "keywords": [
+    "invoice",
+    "web",
+    "ui"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.2.7"
+  }
+}

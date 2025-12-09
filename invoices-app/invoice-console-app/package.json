@@ -1,0 +1,27 @@
+{
+  "name": "invoice-console-app",
+  "version": "1.0.0",
+  "description": "Console application for managing invoices",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "node src/index.js",
+    "test": "node dist/test.js"
+  },
+  "dependencies": {
+    "invoice-repo": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "invoice",
+    "console",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC"
+}
