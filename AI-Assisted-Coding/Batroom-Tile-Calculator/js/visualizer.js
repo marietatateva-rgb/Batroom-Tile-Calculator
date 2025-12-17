@@ -17,16 +17,10 @@ const BathroomVisualizer = {
      */
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
-        this.ctx = this.canvas.getContext('2d');
-        this.setupZoomControls();
-    },
-
-    /**
-     * Initialize the canvas
-     * @param {string} canvasId - ID of the canvas element
-     */
-    init(canvasId) {
-        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) {
+            console.error('Canvas element not found:', canvasId);
+            return;
+        }
         this.ctx = this.canvas.getContext('2d');
         this.setupZoomControls();
     },
@@ -39,17 +33,25 @@ const BathroomVisualizer = {
         const zoomOutBtn = document.getElementById('zoomOut');
         const resetZoomBtn = document.getElementById('resetZoom');
 
-        zoomInBtn.addEventListener('click', () => this.zoom(1.2));
-        zoomOutBtn.addEventListener('click', () => this.zoom(0.8));
-        resetZoomBtn.addEventListener('click', () => this.resetZoom());
+        if (zoomInBtn) {
+            zoomInBtn.addEventListener('click', () => this.zoom(1.2));
+        }
+        if (zoomOutBtn) {
+            zoomOutBtn.addEventListener('click', () => this.zoom(0.8));
+        }
+        if (resetZoomBtn) {
+            resetZoomBtn.addEventListener('click', () => this.resetZoom());
+        }
 
         // Mouse wheel zoom
         const container = document.getElementById('canvasContainer');
-        container.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
-            this.zoom(zoomFactor);
-        });
+        if (container) {
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
+                this.zoom(zoomFactor);
+            });
+        }
     },
 
     /**
@@ -87,7 +89,9 @@ const BathroomVisualizer = {
      */
     updateZoomDisplay() {
         const zoomLevelElement = document.getElementById('zoomLevel');
-        zoomLevelElement.textContent = Math.round(this.zoomLevel * 100) + '%';
+        if (zoomLevelElement) {
+            zoomLevelElement.textContent = Math.round(this.zoomLevel * 100) + '%';
+        }
     },
 
     /**
